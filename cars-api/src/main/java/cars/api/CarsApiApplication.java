@@ -1,5 +1,4 @@
-package com.example.cars_api;
-
+package cars.api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
