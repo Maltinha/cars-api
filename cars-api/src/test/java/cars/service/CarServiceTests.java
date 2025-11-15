@@ -28,6 +28,9 @@ public class CarServiceTests {
         assertEquals("Smart", addedCar.getBrand());
     }
 
+    /*
+    The test should verify that an exception is thrown when trying to add a null car or an invalid car.
+    */
     @Test
     void addCar_shouldThrowException_whenCarIsNull() {
         //Arrange
@@ -36,6 +39,9 @@ public class CarServiceTests {
         assertThrows(IllegalArgumentException.class, () -> carService.addCar(null));
     }
 
+    /*
+    The test should verify that an exception is thrown when trying to add a car with missing model or brand.
+    */
     @Test
     void addCar_shouldThrowException_whenCarIsInvalid() {
         //Arrange
@@ -47,6 +53,9 @@ public class CarServiceTests {
         assertThrows(IllegalArgumentException.class, () -> carService.addCar(carWithNoBrand));
     }
 
+    /*
+    The test should verify the state of the database after deleting a car.
+    */
     @Test
     void deleteCar_shouldRemoveCarCorrectly() {
         //Arrange
@@ -58,6 +67,9 @@ public class CarServiceTests {
         assertThrows(IllegalArgumentException.class, () -> carService.getCarById(1L));
     }
 
+    /*
+    The test should verify that an exception is thrown when trying to delete a non-existent car.
+    */
     @Test
     void deleteCar_shouldThrowException_whenCArDoesNotExist() {
         //Arrange
@@ -66,6 +78,9 @@ public class CarServiceTests {
         assertThrows(IllegalArgumentException.class, () -> carService.deleteCar(10L));
     }
 
+    /*
+    The test should verify that the correct car is retrieved when searching by ID.
+     */
     @Test
     void getCarById_shouldReturnCorrectCar() {
         //Arrange
@@ -77,6 +92,9 @@ public class CarServiceTests {
         assertEquals("Toyota", car.getBrand());
     }
 
+    /*
+    The test should verify that an exception is thrown when trying to retrieve a non-existent car.
+     */
     @Test
     void getCarById_shouldThrowException_whenCarDoesNotExist() {
         //Arrange
@@ -85,6 +103,9 @@ public class CarServiceTests {
         assertThrows(IllegalArgumentException.class, () -> carService.getCarById(10L));
     }
 
+    /*
+    The test should verify that all cars are retrieved correctly from the database.
+     */
     @Test
     void getAllCars_RetreivesAllCars() {
         //Arrange
@@ -101,6 +122,9 @@ public class CarServiceTests {
         assertEquals(5, carService.getAllCars().size());
     }
 
+    /*
+    The test should verify that an exception is thrown when there are no cars available in the database.
+     */
     @Test
     void getAllCars_shouldThrowException_whenNoCarsAvailable() {
         //Arrange
